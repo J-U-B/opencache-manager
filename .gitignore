@@ -1,6 +1,8 @@
 #Autosave files
 *~
 
+.vscode
+
 #build
 [Oo]bj/
 [Bb]in/
@@ -32,6 +34,8 @@ Makefile
 config.log
 config.status
 **/*/Makefile
+site/
+Translations/*.gmo
 
 #Mac bundle stuff
 *.dmg
@@ -46,3 +50,8 @@ config.status
 
 ./ocm-gtk/bin
 ./ocmengine/bin
+ocm-gtk/OCM.desktop
+ocm-gtk/OCMApp.cs
+ocm-gtk/Paths.cs
+ocm-gtk/ocm-gtk
+ocmengine/ocmengine.pc
