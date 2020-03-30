@@ -55,7 +55,7 @@ namespace ocmgtk
 			this.Build ();
 			SetSplashBG ();
 
-			this.versionLabel.Markup = String.Format(Catalog.GetString("<b><big>Version {0}</big></b>\n<small>Copyright (c) Kyle Campbell 2010-2013\nCopyright (c) Andreas Peters 2015-2016</small>"), OCMApp.GetOCMVersion());
+			this.versionLabel.Markup = String.Format(Catalog.GetString("<b><big>Version {0}</big></b>\n<small>Copyright (c) Kyle Campbell 2010-2013\nCopyright (c) Andreas Peters 2015-2018\nCopyright (c) Jens Böttge 2017-2020</small>"), OCMApp.GetOCMVersion());
 
 			if (showChristmasSplash)
 			{

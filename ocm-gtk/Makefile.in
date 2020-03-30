@@ -2247,7 +2247,8 @@ FILES = \
 	gtk-gui/ocmgtk.ReduceLogsDialog.cs \
 	Application/CleanupAssistant/CleanupConfirmPage.cs \
 	gtk-gui/ocmgtk.CleanupConfirmPage.cs \
-	Application/CleanupAssistant/CleanupManager.cs 
+	Application/CleanupAssistant/CleanupManager.cs \
+	Application/Helper.cs
 
 DATA_FILES = 
 RESOURCES = \

@@ -16549,10 +16549,31 @@ Cache Name</property>
       </action>
       <action id="OCMHomePageAction">
         <property name="Type">Action</property>
-        <property name="Label" translatable="yes">_OCM Home Page...</property>
-        <property name="ShortLabel" translatable="yes">_OCM Home Page...</property>
+        <property name="Label" translatable="yes">_OCM Home Page (leagcy)...</property>
+        <property name="ShortLabel" translatable="yes">_OCM Home Page (legacy)...</property>
         <signal name="Activated" handler="OnOCMHomeClick" />
       </action>
+
+      <action id="GitAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Git</property>
+        <property name="ShortLabel" translatable="yes">Git</property>
+      </action>
+
+      <action id="OCM_Git_JUB_Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">OCM on GitHub (Jens Böttge)</property>
+        <property name="ShortLabel" translatable="no">OCM on GitHub (Jens Böttge)</property>
+        <signal name="Activated" handler="OnOCM_Git_JUB_Click" />
+      </action>
+
+      <action id="OCM_Git_AP_Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">OCM on GitHub (Andreas Peters)</property>
+        <property name="ShortLabel" translatable="no">OCM on GitHub (Andreas Peters)</property>
+        <signal name="Activated" handler="OnOCM_Git_AP_Click" />
+      </action>
+
       <action id="GeocachingComAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes">_Geocaching.com</property>
@@ -17112,6 +17133,11 @@ Cache Name</property>
               </node>
               <node type="Menu" action="WebAction">
                 <node type="Menuitem" action="OCMHomePageAction" />
+                <node type="Separator" />
+                <node type="Menu" action="GitAction">
+                  <node type="Menuitem" action="OCM_Git_JUB_Action" />
+                  <node type="Menuitem" action="OCM_Git_AB_Action" />
+                </node>
                 <node type="Separator" />
                 <node type="Menu" action="GeocachingComAction">
                   <node type="Menuitem" action="HomePageAction" />

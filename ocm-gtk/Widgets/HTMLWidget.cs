@@ -90,7 +90,8 @@ namespace ocmgtk
 					}
 				}
 				else
-					System.Diagnostics.Process.Start(args.Request.Uri);
+					// System.Diagnostics.Process.Start(args.Request.Uri);
+					Helper.ProcessStartURL (args.Request.Uri);
 			}
 		}
 		

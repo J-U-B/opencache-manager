@@ -116,7 +116,8 @@ namespace ocmgtk
 		
 		protected virtual void OnHotplugClick (object sender, System.EventArgs e)
 		{
-			System.Diagnostics.Process.Start("http://www.gpsbabel.org/news/20100620.html");
+			// System.Diagnostics.Process.Start("http://www.gpsbabel.org/news/20100620.html");
+			Helper.ProcessStartURL ("http://www.gpsbabel.org/news/20100620.html");
 		}	
 		
 		public bool IncludeAttributes ()

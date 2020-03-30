@@ -1,3 +1,10 @@
+Version 1.0.18
+--------------
+- Fixed opening of URLs under Unix (using Mono 6.6)
+- Added URLs of GIT repositories
+- Non-functional menue entries deactivated (temporary)
+- Credits updated
+
 Version 1.0.17
 --------------
 - Restore gtk-gui

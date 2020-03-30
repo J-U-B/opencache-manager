@@ -24,7 +24,8 @@ namespace ocmgtk
 	{
 		protected virtual void OnButton1Activated (object sender, System.EventArgs e)
 		{
-			System.Diagnostics.Process.Start("https://www.geocaching.com/membership/default.aspx");
+			// System.Diagnostics.Process.Start("https://www.geocaching.com/membership/default.aspx");
+			Helper.ProcessStartURL ("https://www.geocaching.com/membership/default.aspx");
 		}
 		
 		
