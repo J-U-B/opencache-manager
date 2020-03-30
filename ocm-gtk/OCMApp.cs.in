@@ -427,7 +427,7 @@ namespace ocmgtk
 				if ((int)ResponseType.Yes == dlg.Run ()) 
 				{
 					dlg.Hide ();
-					System.Diagnostics.Process.Start ("http://sourceforge.net/projects/opencachemanage/files/");
+					Helper.ProcessStartURL ("http://sourceforge.net/projects/opencachemanage/files/");
 				} 
 				else
 					dlg.Hide ();

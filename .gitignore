@@ -53,3 +53,6 @@ ocm-gtk/OCMApp.cs
 ocm-gtk/Paths.cs
 ocm-gtk/ocm-gtk
 ocmengine/ocmengine.pc
+ocm-gtk/bind
+/AppDir
+/DEB

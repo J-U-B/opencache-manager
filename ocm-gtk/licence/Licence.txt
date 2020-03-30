@@ -1,7 +1,9 @@
 _______________________________________________________________________
 Open Cache Manager
 Copyright (c) 2010-2011 Kyle Campbell
-Copyright (c) 2015-2016 Andreas Peters
+Copyright (c) 2015-2018 Andreas Peters
+Copyright (c) 2017-2020 Jens Böttge
+
 _______________________________________________________________________
 
 Licensed under the Apache License, Version 2.0 (the "License");

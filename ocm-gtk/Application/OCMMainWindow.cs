@@ -27,6 +27,7 @@ using Gdk;
 using System.Text;
 using System.Globalization;
 using System.Text.RegularExpressions;
+//using static Helper;
 
 namespace ocmgtk
 {
@@ -1191,12 +1192,12 @@ namespace ocmgtk
 
 		protected virtual void OnWikiClick (object sender, System.EventArgs e)
 		{
-			Process.Start ("http://sourceforge.net/apps/mediawiki/opencachemanage/");
+			Helper.ProcessStartURL ("http://sourceforge.net/apps/mediawiki/opencachemanage/");
 		}
 
 		protected virtual void OnForumsClick (object sender, System.EventArgs e)
 		{
-			Process.Start("http://ocm.dafb-o.de/index.php");
+			Helper.ProcessStartURL ("http://ocm.dafb-o.de/index.php");
 		}
 
 		protected virtual void OnAboutClick (object sender, System.EventArgs e)
@@ -1206,8 +1207,8 @@ namespace ocmgtk
 			dialog.Icon = this.Icon;
 			dialog.Version = OCMApp.GetOCMVersion();
 			dialog.Logo =  new Gdk.Pixbuf ("./icons/scalable/OCMLogo.svg", 96, 96);
-			dialog.Website = "http://www.andreas-peters.net/";
-			dialog.Copyright = "Copyright Kyle Campbell (c) 2010-2013\nCopyright Andreas Peters (c) 2015-2017";	
+			// dialog.Website = "http://www.andreas-peters.net/";
+			dialog.Copyright = "Copyright Kyle Campbell (c) 2010-2013\nCopyright Andreas Peters (c) 2015-2018\nCopyright Jens Böttge (c) 2017-2020";	
 			System.IO.StreamReader reader = new System.IO.StreamReader(new System.IO.FileStream("licence/Licence.txt",System.IO.FileMode.Open,System.IO.FileAccess.Read));
 			dialog.License = reader.ReadToEnd();
 			reader.Close();
@@ -1216,6 +1217,7 @@ namespace ocmgtk
 				"Michael Massoth/Florian Plähn/Maik Bischoff - German Translation",
 				"Josef Kulhánek - Czech Translation","Vicen - Spanish Translation",
 				"Per Holmberg - Swedish Translation",
+				"Andreas Peters - Programming",
 				"Jens Böttge - Programming"};
 			dialog.Run ();
 			dialog.Hide();
@@ -1237,7 +1239,7 @@ namespace ocmgtk
 				if ((int)ResponseType.Yes == dlg.Run ())
 				{
 					dlg.Hide ();
-					Process.Start ("http://sourceforge.net/projects/opencachemanage/files/");
+					Helper.ProcessStartURL ("http://sourceforge.net/projects/opencachemanage/files/");
 				}
 				else
 					dlg.Hide ();
@@ -1269,80 +1271,90 @@ namespace ocmgtk
 			CacheList.Refresh();
 		}
 
-
 		protected virtual void OnOCMHomeClick (object sender, System.EventArgs e)
 		{
-			Process.Start ("http://opencachemanage.sourceforge.net/");
+			//Process.Start ("http://opencachemanage.sourceforge.net/");
+			Helper.ProcessStartURL ("http://opencachemanage.sourceforge.net/");
+		}
+
+		protected virtual void OnOCM_Git_JUB_Click (object sender, System.EventArgs e)
+		{
+			Helper.ProcessStartURL ("https://github.com/J-U-B/opencache-manager");
+		}
+
+		protected virtual void OnOCM_Git_AP_Click (object sender, System.EventArgs e)
+		{
+			Helper.ProcessStartURL ("https://github.com/andreaspeters/opencache-manager");
 		}
 
 		protected virtual void OnGCHomeClick (object sender, System.EventArgs e)
 		{
-			Process.Start ("http://www.geocaching.com");
+			Helper.ProcessStartURL ("http://www.geocaching.com");
 		}
 
 		protected virtual void OnGCProfileClick (object sender, System.EventArgs e)
 		{
-			Process.Start ("http://www.geocaching.com/my");
+			Helper.ProcessStartURL ("http://www.geocaching.com/my");
 		}
 
 		protected virtual void OnGCAccountClick (object sender, System.EventArgs e)
 		{
-			Process.Start ("http://www.geocaching.com/account/default.aspx");
+			Helper.ProcessStartURL ("http://www.geocaching.com/account/default.aspx");
 		}
 
 		protected virtual void OnGCPocketQueryClick (object sender, System.EventArgs e)
 		{
-			Process.Start ("http://www.geocaching.com/pocket/default.aspx");
+			Helper.ProcessStartURL ("http://www.geocaching.com/pocket/default.aspx");
 		}
 
 		protected virtual void OnGCStatsClick (object sender, System.EventArgs e)
 		{
-			Process.Start("http://www.geocaching.com/my/statistics.aspx");
+			Helper.ProcessStartURL ("http://www.geocaching.com/my/statistics.aspx");
 		}
 
 		protected virtual void OnGCFindClick (object sender, System.EventArgs e)
 		{
-			Process.Start ("http://www.geocaching.com/seek/default.aspx");
+			Helper.ProcessStartURL ("http://www.geocaching.com/seek/default.aspx");
 		}
 
 		protected virtual void OnTCHomePageClick (object sender, System.EventArgs e)
 		{
-			Process.Start ("http://www.terracaching.com");
+			Helper.ProcessStartURL ("http://www.terracaching.com");
 		}
 
 		protected virtual void OnTCTraditionalClick (object sender, System.EventArgs e)
 		{
-			Process.Start ("http://www.terracaching.com/tdl.cgi?NF=1");
+			Helper.ProcessStartURL ("http://www.terracaching.com/tdl.cgi?NF=1");
 		}
 
 		protected virtual void OnTCLocationlessClick (object sender, System.EventArgs e)
 		{
-			Process.Start ("http://www.terracaching.com/tdl.cgi?NF=1&L=1");
+			Helper.ProcessStartURL ("http://www.terracaching.com/tdl.cgi?NF=1&L=1");
 		}
 
 		protected virtual void OnOCCountryList (object sender, System.EventArgs e)
 		{
-			Process.Start("http://opencaching.eu");
+			Helper.ProcessStartURL ("http://opencaching.eu");
 		}
 
 		protected virtual void OnGPSBabelClick (object sender, System.EventArgs e)
 		{
-			Process.Start("http://www.gpsbabel.org");
+			Helper.ProcessStartURL ("http://www.gpsbabel.org");
 		}
 
 		protected virtual void OnGPSDClick (object sender, System.EventArgs e)
 		{
-			Process.Start("http://gpsd.berlios.de");
+			Helper.ProcessStartURL ("http://gpsd.berlios.de");
 		}
 
 		protected virtual void OnNaviHome (object sender, System.EventArgs e)
 		{
-			Process.Start("http://www.navicache.com");
+			Helper.ProcessStartURL ("http://www.navicache.com");
 		}
 
 		protected virtual void OnMyNavi (object sender, System.EventArgs e)
 		{
-			Process.Start("http://www.navicache.com/cgi-bin/db/MyNaviCacheHome.pl");
+			Helper.ProcessStartURL ("http://www.navicache.com/cgi-bin/db/MyNaviCacheHome.pl");
 		}
 
 		protected virtual void OnModifyCache (object sender, System.EventArgs e)
@@ -1363,7 +1375,7 @@ namespace ocmgtk
 
 		protected virtual void OnViewOnlineClick (object sender, System.EventArgs e)
 		{
-			Process.Start(CacheList.SelectedCache.URL.ToString());
+			Helper.ProcessStartURL (CacheList.SelectedCache.URL.ToString());
 		}
 
 		protected virtual void OnMarkFound (object sender, System.EventArgs e)

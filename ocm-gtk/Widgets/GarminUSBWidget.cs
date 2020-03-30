@@ -24,7 +24,8 @@ namespace ocmgtk
 	{
 		protected virtual void OnHotplugClick (object sender, System.EventArgs e)
 		{
-			System.Diagnostics.Process.Start("http://www.gpsbabel.org/os/Linux_Hotplug.html");
+			// System.Diagnostics.Process.Start("http://www.gpsbabel.org/os/Linux_Hotplug.html");
+			Helper.ProcessStartURL ("http://www.gpsbabel.org/os/Linux_Hotplug.html");
 		}			
 
 		public GarminUSBWidget ()

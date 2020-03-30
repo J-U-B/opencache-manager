@@ -28,6 +28,7 @@ namespace ocmgtk
 		public static string GetLatestVer()
 		{
 			WebClient client = new WebClient();
+			// Update doesn't work anymore from here!:
 			Stream instr = client.OpenRead("http://www.andreas-peters.net/ocm/version.txt");
 			StreamReader rdr = new StreamReader(instr);
 			StringBuilder builder = new StringBuilder();
