@@ -1559,10 +1559,14 @@ EXTRA_DIST = $(build_sources) $(build_resx_files) \
 AL = al2
 SATELLITE_ASSEMBLY_NAME = $(notdir $(basename $(ASSEMBLY))).resources.dll
 PROGRAMFILES = \
-	$(OCMAPP_CS) \
-	$(PATHS_CS) \
 	$(OCMENGINE_DLL) \
 	$(OCM_GTK_EXE_MDB)  
+
+# not sure for what OCMAPP_CS an PATHS_CS are needed here; disable for now:
+#	$(OCMAPP_CS) \
+#	$(PATHS_CS) \
+#	$(OCMENGINE_DLL) \
+#	$(OCM_GTK_EXE_MDB)
 
 BINARIES = \
 	$(OCM_GTK)  
@@ -3677,8 +3681,8 @@ install-satellite-assemblies: $(install_satellite_assembly_list)
 uninstall-satellite-assemblies:
 	rm -rf $(install_satellite_assembly_list)
 
-$(eval $(call emit-deploy-wrapper,OCMAPP_CS,OCMApp.cs))
-$(eval $(call emit-deploy-wrapper,PATHS_CS,Paths.cs))
+# $(eval $(call emit-deploy-wrapper,OCMAPP_CS,OCMApp.cs))
+# $(eval $(call emit-deploy-wrapper,PATHS_CS,Paths.cs))
 $(eval $(call emit-deploy-wrapper,OCM_GTK,ocm-gtk))
 $(eval $(call emit-deploy-target,X_GPX_XML))
 $(eval $(call emit-deploy-target,X_OCM_XML))

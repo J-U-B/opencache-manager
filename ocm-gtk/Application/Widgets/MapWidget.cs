@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Text;
 using System.Reflection;
 using ocmengine;
@@ -190,21 +191,44 @@ namespace ocmgtk
 		{
 			m_Loaded = false;
 			string myPosition;
-			string localSite="file://" + System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/web/";
+			string execDir = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+			string altThis = Environment.GetEnvironmentVariable("_");
+			string altDir  = System.IO.Path.GetDirectoryName(System.IO.Path.GetFullPath(altThis));
+			if (execDir=="") {
+				execDir=altDir;
+				System.Console.WriteLine("It seems this binary was build with mkbundle; using alternative execDir");
+			}
+			const string sitePrefix = "file://";
+			const string siteName   = "wpt_viewer.html";
+			string localPath = execDir + "/web/" + siteName;
+			string localView;
+			string envWebDir = Environment.GetEnvironmentVariable("OCM_WEB_DIR");
 
+			System.Console.WriteLine("execDir    = [" + execDir + "]");
+			System.Console.WriteLine("envWebDir  = [" + envWebDir + "]");
 			myPosition = "lat="  + m_App.AppConfig.LastLat.ToString (CultureInfo.InvariantCulture)
 			           + "&lon=" + m_App.AppConfig.LastLon.ToString (CultureInfo.InvariantCulture);
 			System.Console.WriteLine("myPosition = [" + myPosition + "]");
-			System.Console.WriteLine("localSite = [" + localSite + "]");
-			
+			System.Console.WriteLine("localPath  = [" + localPath + "]");
+
+			if (!System.IO.File.Exists(localPath))
+			{
+				System.Console.WriteLine("** W ** File not found: localView = " + localPath);
+				if (envWebDir!="")
+				{
+					// localPath = "/tmp/ocm_web/wpt_viewer.html";
+					localPath = envWebDir + "/" + siteName;
+					System.Console.WriteLine("        Trying: " + localPath);
+				}
+			}
+			localView = sitePrefix + localPath;
 			/*
 			m_View.LoadUri("https://andreas-peters.net/ocm/web/wpt_viewer.html?lat="
 			               + m_App.AppConfig.LastLat.ToString (CultureInfo.InvariantCulture)
 			               + "&lon=" + m_App.AppConfig.LastLon.ToString (CultureInfo.InvariantCulture));
 			*/
 			
-			m_View.LoadUri(localSite + "wpt_viewer.html?" + myPosition);
-			
+			m_View.LoadUri(localView + "?" + myPosition);
 
 			AddMaps(AppConfig.OpenLayerMaps);
 			LoadScript("setAutoSelectCache('" + AppConfig.AutoSelectCacheFromMap + "');");
